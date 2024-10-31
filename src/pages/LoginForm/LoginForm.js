@@ -53,11 +53,16 @@ const LoginForm = () => {
     }
   };
 
-  useEffect(() => {
-    setUsername("noreply+challenge@silicon-access.com");
-    setPassword("bienvenido123");
-    console.log(`${process.env.REACT_APP_API_URL}/auth/login/`);
-  }, []);
+  // useEffect(() => {
+  //   const FakeAuth = true;
+  //   if (FakeAuth) {
+  //     setUsername("asd@asd.com");
+  //     setPassword("asdzxc123");
+  //   } else {
+  //     setUsername("noreply+challenge@silicon-access.com");
+  //     setPassword("bienvenido123");
+  //   }
+  // }, []);
 
   return (
     <div className="flex h-screen items-center justify-center">
@@ -94,6 +99,7 @@ const LoginForm = () => {
             <input
               className="mt-2 h-10 min-w-[400px] rounded-lg bg-primary-text text-center"
               type="password"
+              autoComplete="off"
               value={password}
               onChange={(e) => {
                 setPassword(e.target.value);
