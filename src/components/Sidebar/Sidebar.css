@@ -1,0 +1,5 @@
+/* //src/components/Sidebar/Sidebar.css */
+
+.svg-glow:hover {
+  filter: drop-shadow(0 0 10px var(--primary-color-CIP));
+}
