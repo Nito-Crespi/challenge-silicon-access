@@ -1,9 +1,14 @@
 //src/pages/Dashboard/Dashboard.js
 
 import React from "react";
+import Welcome from "../../components/Welcome/Welcome";
 
-const Dashboard = ({ component: Component }) => {
-  return <>{Component ? <Component /> : null}</>;
+const Dashboard = () => {
+  return (
+    <>
+      <Welcome />
+    </>
+  );
 };
 
 export default Dashboard;
