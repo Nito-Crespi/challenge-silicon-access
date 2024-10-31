@@ -1,0 +1,42 @@
+/* //src/components/App/App.css */
+
+/* Color principal del logo de Silicon Access: #00B8FF */
+/* Color secundario del logo de Silicon Access: #006BF2 */
+/* Color de letra del logo de Silicon Access: #F2F2F2 */
+
+/* Color principal del logo de CIP Seguridad: #F36F21 */
+/* Color de letra del logo de CIP Seguridad: #040707 */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-text-color: #f2f2f2;
+  --secondary-text-color: #040707;
+  --primary-color-sa: #00b8ff;
+  --secondary-color-sa: #006bf2;
+  --primary-color-CIP: #f36f21;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+
+* {
+  font-family: "Roboto Mono", monospace;
+}
+
+.main {
+  background: linear-gradient(-135deg, #00b8ff, #006bf2);
+  width: 100vw;
+  height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  color: var(--primary-text-color);
+}
