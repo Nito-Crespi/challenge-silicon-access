@@ -34,6 +34,11 @@ const LoginForm = () => {
     } else if (value.length < 8) {
       setError("La contraseña debe tener al menos 8 caracteres.");
       return false;
+    } else if (!/^[A-Za-z0-9]+$/.test(value)) {
+      setError(
+        "La contraseña solo debe contener caracteres alfanuméricos (letras y números).",
+      );
+      return false;
     } else if (!/[A-Za-z]/.test(value) || !/[0-9]/.test(value)) {
       setError("La contraseña debe incluir letras y números.");
       return false;
