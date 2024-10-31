@@ -1,13 +1,12 @@
-//src/hooks/useAuth.js
+//src/hooks/useFAuth.js
 
 import { useCallback, useState } from "react";
 
-const useAuth = (login) => {
+const useFAuth = (login) => {
   const [error, setError] = useState(null);
 
   const handleLogin = useCallback(
     async (username, password) => {
-      console.log(username + " " + password);
       setError(null);
       try {
         const response = await fetch("/backend.json");
@@ -30,4 +29,4 @@ const useAuth = (login) => {
   return { handleLogin, error };
 };
 
-export default useAuth;
+export default useFAuth;
