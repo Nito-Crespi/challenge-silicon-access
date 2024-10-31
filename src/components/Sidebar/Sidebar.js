@@ -14,11 +14,6 @@ const Sidebar = ({ logout }) => {
 
   const menuItems = [
     {
-      label: "Busqueda",
-      logo: "search",
-      action: () => navigate("/"),
-    },
-    {
       label: "Nuevo seguro",
       logo: "insurance",
       action: () => navigate("/new-insurance"),
@@ -36,7 +31,7 @@ const Sidebar = ({ logout }) => {
 
   return (
     <div
-      className={`flex h-screen flex-col items-center bg-eigengrau text-primary-text transition-all duration-100 ${isCollapsed ? "w-16" : "w-56"}`}
+      className={`flex h-screen min-h-[500px] flex-col items-center bg-eigengrau text-primary-text transition-all duration-100 ${isCollapsed ? "w-16" : "w-56"}`}
     >
       <img
         className={`h-[155px] w-auto ${isCollapsed ? "" : ""}`}
