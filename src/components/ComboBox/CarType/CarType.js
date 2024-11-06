@@ -1,13 +1,11 @@
 //src/components/ComboBox/CarType/CarType.js
 
+import React from "react";
 import { useContext } from "react";
 import { AppContext } from "../../../context/AppContext";
-import useCarInsuranceSelection from "../../../hooks/useCarInsuranceSelection";
 import ComboBox from "../ComboBox";
 
-const CarType = () => {
-  const { setCarTypeSelected } = useCarInsuranceSelection();
-
+const CarType = React.memo(({ setCarTypeSelected }) => {
   const { catalogData } = useContext(AppContext);
 
   const carTypes = catalogData.carTypes;
@@ -19,6 +17,9 @@ const CarType = () => {
     setCarTypeSelected(selectedItem || null);
   };
 
+  // console.log("CarType:");
+  // console.log(uniqueNames);
+
   return (
     <>
       <ComboBox
@@ -28,6 +29,6 @@ const CarType = () => {
       />
     </>
   );
-};
+});
 
 export default CarType;

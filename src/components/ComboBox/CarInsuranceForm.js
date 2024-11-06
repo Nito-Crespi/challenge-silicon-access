@@ -12,6 +12,13 @@ const CarInsuranceForm = () => {
     carModelSelected,
     carBrandSelected,
     carColorSelected,
+    // setCountrySelected,
+    // setInsuranceSelected,
+    // setIdTypeSelected,
+    // setCarTypeSelected,
+    // setCarModelSelected,
+    // setCarBrandSelected,
+    // setCarColorSelected,
   } = useCarInsuranceStore();
 
   return (

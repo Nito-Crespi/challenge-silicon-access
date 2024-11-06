@@ -1,13 +1,10 @@
 //src/components/ComboBox/Insurance/Insurance.js
 
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { AppContext } from "../../../context/AppContext";
-import useCarInsuranceSelection from "../../../hooks/useCarInsuranceSelection";
 import ComboBox from "../ComboBox";
 
-const Insurance = () => {
-  const { countrySelected, setInsuranceSelected } = useCarInsuranceSelection();
-
+const Insurance = React.memo(({ countrySelected, setInsuranceSelected }) => {
   const { catalogData } = useContext(AppContext);
 
   const insurances = catalogData.insurances.filter(
@@ -16,6 +13,9 @@ const Insurance = () => {
   );
 
   const uniqueNames = [...new Set(insurances.map((item) => item.name))];
+
+  // console.log("Insurance:");
+  // console.log(uniqueNames);
 
   const handleSelect = (select) => {
     const selectedItem = insurances.find((item) => item.name === select);
@@ -31,6 +31,6 @@ const Insurance = () => {
       />
     </>
   );
-};
+});
 
 export default Insurance;

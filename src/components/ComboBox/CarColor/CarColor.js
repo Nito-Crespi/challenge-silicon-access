@@ -1,14 +1,11 @@
 //src/components/ComboBox/CarColor/CarColor.js
 
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { AppContext } from "../../../context/AppContext";
-import useCarInsuranceSelection from "../../../hooks/useCarInsuranceSelection";
 import { capitalizeWords } from "../../../utils/capitalizeWords";
 import ComboBox from "../ComboBox";
 
-const CarColor = () => {
-  const { setCarColorSelected } = useCarInsuranceSelection();
-
+const CarColor = React.memo(({ setCarColorSelected }) => {
   const { catalogData } = useContext(AppContext);
 
   const carColors = catalogData.carColors;
@@ -16,6 +13,9 @@ const CarColor = () => {
   const uniqueNames = [
     ...new Set(carColors.map((item) => capitalizeWords(item.name))),
   ];
+
+  // console.log("CarColor:");
+  // console.log(uniqueNames);
 
   const handleSelect = (select) => {
     const selectedItem = carColors.find(
@@ -33,6 +33,6 @@ const CarColor = () => {
       />
     </>
   );
-};
+});
 
 export default CarColor;

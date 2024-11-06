@@ -1,13 +1,10 @@
 //src/components/ComboBox/IdType/IdType.js
 
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { AppContext } from "../../../context/AppContext";
-import useCarInsuranceSelection from "../../../hooks/useCarInsuranceSelection";
 import ComboBox from "../ComboBox";
 
-const IdType = () => {
-  const { countrySelected, setIdTypeSelected } = useCarInsuranceSelection();
-
+const IdType = React.memo(({ countrySelected, setIdTypeSelected }) => {
   const { catalogData } = useContext(AppContext);
 
   const idTypes = catalogData.idTypes.sort(
@@ -21,6 +18,9 @@ const IdType = () => {
   const uniqueNames = [
     ...new Set(idTypeByCountrySelected.map((item) => item.name)),
   ];
+
+  // console.log("IdType:");
+  // console.log(uniqueNames);
 
   const handleSelect = (select) => {
     const selectedItem = idTypes.find((item) => item.name === select);
@@ -36,6 +36,6 @@ const IdType = () => {
       />
     </>
   );
-};
+});
 
 export default IdType;

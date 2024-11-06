@@ -1,14 +1,11 @@
 //src/components/ComboBox/CarBrand/CarBrand.js
 
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { AppContext } from "../../../context/AppContext";
-import useCarInsuranceSelection from "../../../hooks/useCarInsuranceSelection";
 import { capitalizeWords } from "../../../utils/capitalizeWords";
 import ComboBox from "../ComboBox";
 
-const CarBrand = () => {
-  const { setCarBrandSelected } = useCarInsuranceSelection();
-
+const CarBrand = React.memo(({ setCarBrandSelected }) => {
   const { catalogData } = useContext(AppContext);
 
   const carBrands = catalogData.carBrands;
@@ -16,6 +13,9 @@ const CarBrand = () => {
   const uniqueNames = [
     ...new Set(carBrands.map((item) => capitalizeWords(item.name))),
   ];
+
+  // console.log("CarBrand:");
+  // console.log(uniqueNames);
 
   const handleSelect = (select) => {
     const selectedItem = carBrands.find(
@@ -33,6 +33,6 @@ const CarBrand = () => {
       />
     </>
   );
-};
+});
 
 export default CarBrand;

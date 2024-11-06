@@ -1,6 +1,6 @@
 //src/pages/NewInsurance/NewInsurance.js
 
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import CarBrand from "../../components/ComboBox/CarBrand/CarBrand";
 import CarColor from "../../components/ComboBox/CarColor/CarColor";
 import CarInsuranceForm from "../../components/ComboBox/CarInsuranceForm";
@@ -13,9 +13,24 @@ import { AppContext } from "../../context/AppContext";
 import useCarInsuranceSelection from "../../hooks/useCarInsuranceSelection";
 
 const NewInsurance = () => {
-  const { carTypeSelected } = useCarInsuranceSelection();
+  const {
+    countrySelected,
+    carTypeSelected,
+    carBrandSelected,
+    setCountrySelected,
+    setInsuranceSelected,
+    setIdTypeSelected,
+    setCarTypeSelected,
+    setCarModelSelected,
+    setCarBrandSelected,
+    setCarColorSelected,
+  } = useCarInsuranceSelection();
 
   const { userInfo } = useContext(AppContext);
+
+  // useEffect(() => {
+  //   console.log("---");
+  // }, []);
 
   return (
     <>
@@ -31,14 +46,28 @@ const NewInsurance = () => {
 
               <h1>Seleccione un país:</h1>
               <div className="h-12 w-96">
-                <Countries />
+                <Countries setCountrySelected={setCountrySelected} />
               </div>
 
               <h1>Tipo de documento:</h1>
-              <div className="h-12 w-96">{<IdTypesComboBox />}</div>
+              <div className="h-12 w-96">
+                {
+                  <IdTypesComboBox
+                    countrySelected={countrySelected}
+                    setIdTypeSelected={setIdTypeSelected}
+                  />
+                }
+              </div>
 
               <h1>Proveedor de seguro:</h1>
-              <div className="h-12 w-96">{<InsuranceComboBox />}</div>
+              <div className="h-12 w-96">
+                {
+                  <InsuranceComboBox
+                    countrySelected={countrySelected}
+                    setInsuranceSelected={setInsuranceSelected}
+                  />
+                }
+              </div>
             </div>
 
             <div className="w-1/2 p-2 [&>*]:p-1">
@@ -47,16 +76,29 @@ const NewInsurance = () => {
               </h2>
 
               <h1>Tipo de vehículo:</h1>
-              <div className="h-12 w-96">{<CarType />}</div>
+              <div className="h-12 w-96">
+                {<CarType setCarTypeSelected={setCarTypeSelected} />}
+              </div>
 
               <h1>Modelo del vehículo:</h1>
-              <div className="h-12 w-96">{<CarBrand />}</div>
+              <div className="h-12 w-96">
+                {<CarBrand setCarBrandSelected={setCarBrandSelected} />}
+              </div>
 
               <h1>Marca del vehículo:</h1>
-              <div className="h-12 w-96">{<CarModel />}</div>
+              <div className="h-12 w-96">
+                {
+                  <CarModel
+                    carBrandSelected={carBrandSelected}
+                    setCarModelSelected={setCarModelSelected}
+                  />
+                }
+              </div>
 
               <h1>Color de vehículo:</h1>
-              <div className="h-12 w-96">{<CarColor />}</div>
+              <div className="h-12 w-96">
+                {<CarColor setCarColorSelected={setCarColorSelected} />}
+              </div>
             </div>
           </div>
           {carTypeSelected ? (
