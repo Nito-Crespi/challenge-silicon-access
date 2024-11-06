@@ -1,17 +1,12 @@
-/* https://github.com/Nito-Crespi/challenge-silicon-access */
-
 //src/pages/About/About.js
 
-import { useContext } from "react";
-import { AppContext } from "../../context/AppContext";
-
 const About = () => {
-  const { userInfo } = useContext(AppContext);
   return (
     <>
       <div className="p-2 [&>*]:p-1">
         <p className="inline">Version de Vercel:</p>
         <p className="inline">532cb24</p>
+        <br />
         <p className="inline">Creador: Nito Crespi:</p>
         <p className="inline">
           <a
