@@ -10,6 +10,8 @@ const About = () => {
   return (
     <>
       <div className="p-2 [&>*]:p-1">
+        <p className="inline">Version de Vercel:</p>
+        <p className="inline">532cb24</p>
         <p className="inline">Creador: Nito Crespi:</p>
         <p className="inline">
           <a
