@@ -2,7 +2,7 @@
 
 import { useContext } from "react";
 import { AppContext } from "../../context/AppContext";
-import { capitalizeWords } from "../../../utils/capitalizeWords";
+import { capitalizeWords } from "../../utils/capitalizeWords";
 
 const Welcome = () => {
   const { userInfo } = useContext(AppContext);
